@@ -6,7 +6,7 @@
       <div class="hero" aria-label="Introduction">
 
         <!-- Jumbotron echoes featured image for Homepage -->
-        <div class="jumbotron text-center" style="background-image:url('<?php the_post_thumbnail_url(); ?>');">
+        <div class="jumbotron text-center" style="background-image:url('https://open.toronto.ca/wp-content/uploads/2019/09/toronto-the-good.jpg');">
 
           <div class="row">
             <h1>Search the City of Toronto's Open Data Portal</h1>
@@ -36,7 +36,7 @@
       </section>
 
 
-    
+
     </div>
   </section>
 </div><!-- end row -->
