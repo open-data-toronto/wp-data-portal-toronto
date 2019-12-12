@@ -90,7 +90,7 @@
                   ?>
 
                   <!-- Search -->
-                  <form class="form-inline my-2 my-lg-0" role="search" action="<?php echo site_url('/'); ?>" method="get">
+                  <!-- <form class="form-inline my-2 my-lg-0" role="search" action="<?php echo site_url('/'); ?>" method="get">
                     <label class="sr-only" for="s">
                       Search Open Data Website
                     </label>
@@ -98,7 +98,7 @@
                     <button class="btn btn-primary my-2 my-sm-0" type="submit">
                       Search
                     </button>
-                  </form>
+                  </form> -->
                   <!-- End Search -->
                 </div>
               </nav>
