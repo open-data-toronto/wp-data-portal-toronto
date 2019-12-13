@@ -9,7 +9,7 @@
         <div class="jumbotron text-center" style="background-image:url('https://open.toronto.ca/wp-content/uploads/2019/09/toronto-the-good.jpg');">
 
           <div class="row">
-            <h1>Search the City of Toronto's Open Data Portal</h1>
+            <h1>Search the Data Portal</h1>
             <div class="col-md-6 offset-md-3">
               <form id="dataset-search" class="form-inline" role="search">
                 <div class="input-group">
