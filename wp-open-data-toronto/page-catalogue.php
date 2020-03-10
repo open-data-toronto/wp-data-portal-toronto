@@ -24,6 +24,15 @@
           <h2>Dataset Filters</h2>
           <a href="#input-search" class="sr-only sr-only-focusable">Skip dataset filters and go to search</a>
           <div class="dataset-sidebar">
+            <div class="card" id="owner_division-filter">
+              <div class="card-header filter-heading">
+                <h3>Publisher</h3>
+              </div>
+              <ul data-type="filter" data-field="owner_division" class="list-group list-group-flush" id="owner_division-values">
+                <li class="show-more list-group-item list-group-item-action" data-field="owner_division"></li>
+              </ul>
+            </div>
+            
             <div class="card" id="vocab_topics-filter">
               <div class="card-header filter-heading">
                 <h3>Topic</h3>
@@ -39,15 +48,6 @@
               </div>
               <ul data-type="filter" data-field="vocab_civic_issues" class="list-group list-group-flush" id="vocab_civic_issues-values">
                 <li class="show-more list-group-item list-group-item-action" data-field="vocab_civic_issues"></li>
-              </ul>
-            </div>
-
-            <div class="card" id="owner_division-filter">
-              <div class="card-header filter-heading">
-                <h3>Publisher</h3>
-              </div>
-              <ul data-type="filter" data-field="owner_division" class="list-group list-group-flush" id="owner_division-values">
-                <li class="show-more list-group-item list-group-item-action" data-field="owner_division"></li>
               </ul>
             </div>
 
