@@ -66,7 +66,7 @@
               <!-- Fixed navbar -->
               <nav class="navbar navbar-toggleable-md navbar-light">
                 <a class="navbar-brand" href="<?php echo home_url(); ?>">
-                  Open Data
+                  DataHub
                 </a>
                 <div class="internal-badge"><i class="fa fa-lock"></i> Internal</div>
 
