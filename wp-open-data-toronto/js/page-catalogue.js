@@ -13,9 +13,9 @@ $.extend(config, {
         'dataset_category',
         'owner_division',
         'refresh_rate',
-        'vocab_civic_issues',
-        'vocab_formats',
-        'vocab_topics'
+        'civic_issues',
+        'formats',
+        "topics"
     ],
     'filterSize': 6 // Actual number of results shown is filterSize minus 1
 });
@@ -32,6 +32,7 @@ function buildCatalogue(response) {
     $('#nav-catalogue').hide();
 
     var data = response['result'];
+    console.log(data)
     state['size'] = Math.ceil(data['count'] / config['datasetsPerPage']);
 
     if (data['results'].length == 0) {
@@ -64,9 +65,10 @@ function buildCatalogue(response) {
             listLabels = [],
             specialLabel = '',
             dateLabel = '';
-
+        console.log(config['filters'])
         for (var j = 0; j < config['filters'].length; j++) {
-            if (config['filters'][j].startsWith('vocab_')) {
+            
+            if ( ["civic_issues", "formats", "topics"].includes( config['filters'][j] )) {
                 var f = config['filters'][j].replace('vocab_', '');
 
                 if (row.hasOwnProperty(f) && row[f]) {
@@ -80,20 +82,22 @@ function buildCatalogue(response) {
             }
         }
 
-        if (row['is_retired']) {
-          specialLabel = '<div class="col-md-2">' +
-                           '<div class="status-label retired-tag pull-right" aria-label="archived">Retired</div>' +
-                         '</div>';
-        } else if (getDaysSince(row['metadata_created']) <= 30) {
+         if (getDaysSince(row['date_published']) <= 30) {
           specialLabel = '<div class="col-md-2">' +
                            '<div class="status-label new-tag pull-right" aria-label="new">New</div>' +
                          '</div>';
-        }
+        } else if (row['is_retired']) {
+            if (row['is_retired'].toLowerCase() == 'true'){
+                specialLabel = '<div class="col-md-2">' +
+                                 '<div class="status-label retired-tag pull-right" aria-label="archived">Retired</div>' +
+                               '</div>';
+                            } 
+        } 
 
         if (row['refresh_rate'].toLowerCase() != 'real-time') {
           dateLabel = '<div class="col-md-4 text-left attributes">' +
             '<div class="dataset-meta-label">Last Refreshed</div>' +
-            '<span>' + getFullDate(row['last_refreshed'] ? row['last_refreshed'].split('-') : row['metadata_modified'].split('-')) + '</span>' +
+            '<span>' + getFullDate(row['last_refreshed'] ? row['last_refreshed'].split('-') : row['last_refreshed'].split('-')) + '</span>' +
           '</div>'
         }
 
@@ -448,7 +452,7 @@ function updateURL() {
         urlParam.push('n=' + state['page']);
     }
 
-    if (state['sort'] != 'metadata_modified desc') {
+    if (state['sort'] != 'last_refreshed desc') {
         urlParam.push('sort=' + state['sort']);
     }
 
